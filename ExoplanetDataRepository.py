@@ -9,7 +9,7 @@ class ExoplanetDataRepository(Repository):
 
     def get_all(self, ) -> list:
         response = requests.get(self.api_url, headers={'Accept': 'application/json'})
-        data = (response.content).decode("utf-8").splitlines()
+        data = response.content.decode("utf-8").splitlines()
         lines = []
         for line in data:
             if not line.startswith("#"):
