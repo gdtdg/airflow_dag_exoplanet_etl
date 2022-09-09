@@ -18,12 +18,12 @@ def main(api_url, es_index, connection):
 
     print("Process started")
     exoplanet_data_repo = ExoplanetDataRepository(api_url)
-    exoplanet_elasticseach_repo = ExoplanetElasticSearchRepository(es_index, connection)
-    exoplanet_elasticseach_repo.delete_es_index()
+    exoplanet_elasticsearch_repo = ExoplanetElasticSearchRepository(es_index, connection)
+    exoplanet_elasticsearch_repo.delete_es_index()
     print("Index deleted")
-    exoplanet_elasticseach_repo.create_index_with_mapping()
+    exoplanet_elasticsearch_repo.create_index_with_mapping()
     print("Index with mapping created")
-    transform = TransformService(exoplanet_data_repo, exoplanet_elasticseach_repo)
+    transform = TransformService(exoplanet_data_repo, exoplanet_elasticsearch_repo)
     transform.process()
     print("All rows transformed")
 
