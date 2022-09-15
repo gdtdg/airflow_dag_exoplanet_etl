@@ -50,5 +50,4 @@ class TransformService:
         self.transform_releasedate_date_format(new_row)
         self.transform_rowupdate_date_format(new_row)
         self.add_rowid_to_row(new_row, count)
-
         return new_row
